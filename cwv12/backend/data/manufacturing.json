@@ -1,0 +1,51 @@
+{
+  "_source": "ICCT Global LCA 2021 + MIT Climate Portal 2022 + IEA Global EV Outlook 2023",
+  "_note": "Base manufacturing kgCO2e per vehicle. Scaled by VClass size factor in carbon_engine.py.",
+  "_url_icct": "https://theicct.org/publication/a-global-comparison-of-the-life-cycle-greenhouse-gas-emissions-of-combustion-engine-and-electric-passenger-cars/",
+  "_url_iea":  "https://www.iea.org/reports/global-ev-outlook-2023",
+  "_url_mit":  "https://climate.mit.edu/explainers/cars-and-climate",
+
+  "ICE": 7200.0,
+  "Hybrid": 8500.0,
+  "EV": 13000.0,
+
+  "_breakdown_ICE": {
+    "body_chassis_kgCO2": 3200,
+    "powertrain_engine_kgCO2": 2100,
+    "electronics_assembly_kgCO2": 1200,
+    "other_kgCO2": 700,
+    "total_kgCO2": 7200,
+    "source": "ICCT 2021 Table 2"
+  },
+  "_breakdown_Hybrid": {
+    "body_chassis_kgCO2": 3200,
+    "powertrain_engine_kgCO2": 2100,
+    "small_battery_pack_kgCO2": 1500,
+    "electronics_assembly_kgCO2": 1000,
+    "other_kgCO2": 700,
+    "total_kgCO2": 8500,
+    "source": "ICCT 2021 + IEA 2023 battery cost estimate for ~8.8 kWh NiMH/Li-ion pack"
+  },
+  "_breakdown_EV": {
+    "body_chassis_kgCO2": 3200,
+    "large_battery_pack_kgCO2": 6500,
+    "electric_motor_power_electronics_kgCO2": 2000,
+    "other_assembly_kgCO2": 1300,
+    "total_kgCO2": 13000,
+    "source": "ICCT 2021 + IEA 2023: 60-75 kWh Li-ion pack at ~85-100 kgCO2/kWh (avg grid)",
+    "note": "Battery pack dominates EV manufacturing footprint. Halves by 2030 as grid cleans up."
+  },
+
+  "_size_scaling": {
+    "note": "Applied in carbon_engine.py SIZE_SCALE dict — 20 VClass categories from 0.82x (Two Seater) to 1.24x (Standard SUV 4WD)",
+    "source": "ICCT 2021 supplementary data + EPA VClass weight classifications"
+  },
+
+  "_battery_disposal": {
+    "EV_kgCO2": 400,
+    "Hybrid_kgCO2": 200,
+    "ICE_kgCO2": 300,
+    "note": "Separate from manufacturing. EV: large Li-ion pack recycling. ICE/Hybrid: catalytic converter + fluids. See carbon_engine.py end_of_life_em.",
+    "source": "ICCT 2021 + EU Battery Regulation 2023/1542"
+  }
+}

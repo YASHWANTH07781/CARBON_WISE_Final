@@ -1,0 +1,30 @@
+{
+  "name": "carbon-wise",
+  "version": "5.0.0",
+  "description": "Carbon-Wise LCA Vehicle Comparison Engine — React 18 + D3.js + Chart.js + Flask",
+  "private": true,
+  "proxy": "http://localhost:5000",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "chart.js": "^4.4.0",
+    "d3": "^7.8.5"
+  },
+  "scripts": {
+    "start":   "react-scripts start",
+    "build":   "react-scripts build",
+    "test":    "react-scripts test",
+    "server":  "node server/server.js",
+    "backend": "cd backend && python app.py"
+  },
+  "eslintConfig": {
+    "extends": ["react-app"]
+  },
+  "browserslist": {
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+  },
+  "keywords": ["carbon", "lifecycle", "EV", "emissions", "react", "d3", "chartjs", "flask"],
+  "license": "MIT"
+}

@@ -1,0 +1,36 @@
+{
+  "_source": "EPA FuelEconomy.gov combE column + IEA Global EV Outlook 2023 + ICCT 2021",
+  "_note": "Fallback efficiency values used ONLY when EPA combE or comb08 fields are 0 or missing. Primary data always comes from vehicles.csv live columns.",
+  "_primary_data": {
+    "EV_column": "combE (kWh per 100 miles, EPA measured)",
+    "ICE_column": "co2TailpipeGpm (grams CO2 per mile, EPA measured)",
+    "Hybrid_column": "co2TailpipeGpm + comb08 (MPG combined, EPA measured)"
+  },
+
+  "EV": 0.362,
+  "ICE": 7.56,
+  "Hybrid": 7.56,
+
+  "_detail": {
+    "EV_kWh_per_100km": {
+      "fallback_value": 0.362,
+      "unit": "kWh per km (= 22.5 kWh/100km)",
+      "derivation": "22.5 kWh/100km ÷ 100 = 0.225 kWh/km. Note: combE in EPA is kWh/100mi, converted to kWh/km in engine.",
+      "source": "IEA Global EV Outlook 2023 p.47: global average BEV efficiency 19-25 kWh/100km",
+      "real_data": "Model 3: combE=26.8 kWh/100mi → 0.167 kWh/km. Model Y: combE=27.97 → 0.174 kWh/km. Kona EV: combE=28.0 → 0.174 kWh/km"
+    },
+    "ICE_L_per_100km": {
+      "fallback_value": 7.56,
+      "unit": "litres per 100km",
+      "derivation": "EPA comb08 MPG fallback 25 MPG → 9.41 L/100km. 7.56 is ICCT 2021 global fleet average.",
+      "source": "ICCT 2021 LCA supplementary: average new ICE 2020 = 7.1-8.2 L/100km globally",
+      "real_data": "Civic: comb08=28 MPG → 8.4 L/100km. Camry: comb08=21 MPG → 11.2 L/100km"
+    },
+    "Hybrid_L_per_100km": {
+      "fallback_value": 7.56,
+      "unit": "litres per 100km",
+      "source": "Same as ICE fallback. Real hybrid data from EPA comb08: Prius = 41 MPG → 5.74 L/100km",
+      "real_data": "Prius: comb08=41 MPG → 5.74 L/100km (significantly better than ICE)"
+    }
+  }
+}

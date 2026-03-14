@@ -1,0 +1,34 @@
+{
+  "_source": "IPCC 2006 Guidelines Vol.2 Ch.3 Table 3.2.1 + EPA GHG Emission Factors Hub 2023 + UK DEFRA Conversion Factors 2023",
+  "_url_ipcc":  "https://www.ipcc-nggip.iges.or.jp/public/2006gl/pdf/2_Volume2/V2_3_Ch3_Mobile_Combustion.pdf",
+  "_url_epa":   "https://www.epa.gov/system/files/documents/2023-03/ghg_emission_factors_hub.pdf",
+  "_url_defra": "https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2023",
+
+  "gasoline_kg_per_liter": 2.348,
+  "diesel_kg_per_liter": 2.690,
+
+  "_detail": {
+    "gasoline_kg_per_liter": {
+      "value": 2.348,
+      "unit": "kgCO2e per litre",
+      "carbon_content_pct": 85.5,
+      "net_calorific_value_MJ_per_kg": 44.3,
+      "source": "IPCC 2006 Table 3.2.1 + EPA 2023 (2.31 kgCO2/L CO2 only; 2.348 includes CH4/N2O on 100yr GWP)",
+      "note": "Used as fallback when EPA co2TailpipeGpm field = 0 in vehicles.csv"
+    },
+    "diesel_kg_per_liter": {
+      "value": 2.690,
+      "unit": "kgCO2e per litre",
+      "carbon_content_pct": 86.1,
+      "net_calorific_value_MJ_per_kg": 43.0,
+      "source": "IPCC 2006 Table 3.2.1 + UK DEFRA 2023 (2.68 kgCO2/L CO2 only; 2.69 with GWP100)",
+      "note": "Applied when fuelType1 contains 'Diesel'"
+    },
+    "primary_data_source": {
+      "note": "For most vehicles, operational emissions use EPA co2TailpipeGpm directly from vehicles.csv — these fuel factors are fallback only",
+      "epa_column": "co2TailpipeGpm",
+      "epa_unit": "grams CO2 per mile",
+      "conversion": "co2_kg_per_km = (co2TailpipeGpm / 1000) / 1.60934"
+    }
+  }
+}
